@@ -1,37 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '@/styles/Home.module.scss'
 import Schedule from '@/components/Schedule'
-
-class Topic {
-  constructor(title, startDate) {
-    this.title = title
-    this.startDate = startDate
-    this.lastReviewed = startDate
-    this.EF = 2.5 //default value
-    this.repetitions = 0
-    this.intervals = []
-  }
-
-  next() {
-    const newDate = new Date(this.lastReviewed)
-    const days = this.intervals.at(-1) || 0
-    newDate.setDate(newDate.getDate() + days)
-    return newDate
-  }
-}
-
-const schedule = [
-  new Topic('HTML Fundamentals', new Date()),
-  new Topic('CSS Fundamentals', new Date()),
-  new Topic('Identify notes on treble cleff', new Date()),
-]
+import { useScheduleContext } from '@/components/scheduleContext'
 
 function AddTopic() {
   return <></>
 }
 
 export default function Home() {
+  const [schedule, setSchedule] = useScheduleContext()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -45,9 +23,11 @@ export default function Home() {
           Welcome, Broh
         </h1>
 
-        <Schedule schedule={schedule}/>
+        {
+          schedule.length > 0 &&
+          <Schedule schedule={schedule}/>
+        }
         <AddTopic />
-        
       </main>
     </div>
   )
