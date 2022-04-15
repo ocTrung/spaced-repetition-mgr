@@ -12,9 +12,7 @@ export function getNextReviewDate(reviewItem) {
   const newDate = new Date(reviewItem.lastReviewed)
   const days = reviewItem.intervals.at(-1) || 0
   newDate.setDate(newDate.getDate() + days)
-  console.log('prevDate', reviewItem.lastReviewed)
-  console.log('days to add', days)
-  console.log('newDate', newDate)
+
   return newDate
 }
 

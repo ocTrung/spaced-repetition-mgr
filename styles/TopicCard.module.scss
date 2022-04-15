@@ -4,20 +4,20 @@
   display: flex;
   flex-direction: column;
   animation-name: cardAppear;
-  animation-duration: 1000ms;
-  animation-timing-function: ease-out;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(.18, .89, .32, 1.28); // ease-in-out backwards
   animation-fill-mode: both;
+  transform: translateY(-25px);
+  opacity: 0%;
 }
 
-@keyframes cardAppear{
-  0% {
-    transform: translateY(-25px);
-    opacity: 0%;
-  }
-  50% {
+@keyframes cardAppear {
+  80% {
     opacity: 100%;
   }
+
   100% {
+    opacity: 100%;
     transform: translateY(0px);
   }
 }
@@ -62,13 +62,13 @@
 
 .gradeToggleOpen {
   composes: gradeToggle;
-  border-color:rgb(120, 120, 254);
-  color:rgb(120, 120, 254)
+  border-color: rgb(120, 120, 254);
+  color: rgb(120, 120, 254)
 }
 
 .gradeToggle:active {
-  border-color:rgb(0, 0, 255);
-  color:rgb(0, 0, 255)
+  border-color: rgb(0, 0, 255);
+  color: rgb(0, 0, 255)
 }
 
 .hr {

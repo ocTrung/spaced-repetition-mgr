@@ -3,8 +3,8 @@ import { ReviewItem } from '@/utils/reviewItemUtils'
 
 const testSchedule = [
   new ReviewItem('HTML Fundamentals', new Date()),
-  // new ReviewItem('CSS Fundamentals', new Date()),
-  // new ReviewItem('Identify notes on treble cleff', new Date()),
+  new ReviewItem('CSS Fundamentals', new Date()),
+  new ReviewItem('Identify notes on treble cleff', new Date()),
 ]
 
 const ScheduleContext = createContext()

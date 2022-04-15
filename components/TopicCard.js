@@ -5,11 +5,18 @@ import styles from '@/styles/TopicCard.module.scss'
 
 export default function TopicCard({ topic, index }) {
   const [showGrader, setShowGrader] = useState(false)
-  const delay = index * 200 + 'ms'
+  const [delay, setDelay] = useState('0ms')
+
 
   useEffect(() => {
     setShowGrader(false)
+    setDelay('0ms')
   }, [topic])
+
+  // Only add animation delay when entire schedule renders
+  useEffect(() => {
+    setDelay(index * 200 + 'ms')
+  }, [])
 
   return (
     <div
@@ -39,7 +46,7 @@ export default function TopicCard({ topic, index }) {
 
       <ul className={styles.info}>
         <li className={styles.infoItem}>next: {getNextReviewDate(topic).toDateString()}</li>
-        <li className={styles.infoItem}>last grade: {topic.EF}/5</li>
+        <li className={styles.infoItem}>last grade: {topic.EF.toFixed(1)}/5</li>
         <li className={styles.infoItem}>last reviewed: {topic.lastReviewed.toDateString()}</li>
       </ul>
       <pre>
