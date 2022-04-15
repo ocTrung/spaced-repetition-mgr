@@ -3,28 +3,25 @@ export class ReviewItem {
     this.title = title
     this.startDate = startDate
     this.lastReviewed = startDate
-    this.EF = 3 //default value
+    this.EF = 2.5 //default value
     this.intervals = []
   }
-
-  // next() {
-  //   const newDate = new Date(this.lastReviewed)
-  //   const days = this.intervals.at(-1) || 0
-  //   newDate.setDate(newDate.getDate() + days)
-  //   return newDate
-  // }
 }
 
 export function getNextReviewDate(reviewItem) {
   const newDate = new Date(reviewItem.lastReviewed)
   const days = reviewItem.intervals.at(-1) || 0
   newDate.setDate(newDate.getDate() + days)
+  console.log('prevDate', reviewItem.lastReviewed)
+  console.log('days to add', days)
+  console.log('newDate', newDate)
   return newDate
 }
 
-export function addReviewSession(reviewItem, EF) {
-  const nextInterval = calcNextInterval(reviewItem.intervals.length, EF)
-  return {...reviewItem, EF: EF, lastReviewed: new Date(), intervals: [...reviewItem.intervals, nextInterval]}
+export function addReviewSession(reviewItem, quality) {
+  const nextEF = calcEF(reviewItem.EF, quality)
+  const nextInterval = calcNextInterval(reviewItem.intervals.length, nextEF)
+  return { ...reviewItem, EF: nextEF, lastReviewed: new Date(), intervals: [...reviewItem.intervals, nextInterval] }
 }
 
 function calcNextInterval(intervalCount, EF) {
@@ -35,7 +32,13 @@ function calcNextInterval(intervalCount, EF) {
     return 1
   if (intervalCount === 2)
     return 6
-  
+
   return intervalCount * EF
+}
+
+// Formula provided by SM2 algorithm
+// EF: prev value of the E-Factor, quality: rating for previous review session
+export function calcEF(EF, quality) {
+  return EF + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
 }
 

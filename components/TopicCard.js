@@ -3,7 +3,7 @@ import { ReviewGrader } from './ReviewGrader'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
 import styles from '@/styles/TopicCard.module.scss'
 
-export default function TopicCard({topic, index}) {
+export default function TopicCard({ topic, index }) {
   const [showGrader, setShowGrader] = useState(false)
   const delay = index * 200 + 'ms'
 
@@ -12,10 +12,10 @@ export default function TopicCard({topic, index}) {
   }, [topic])
 
   return (
-    <div 
-      key={topic.title} 
+    <div
+      key={topic.title}
       className={styles.card}
-      style={{animationDelay: delay}}
+      style={{ animationDelay: delay }}
     >
       <section className={styles.topSection}>
         <header className={styles.cardHeader}>
@@ -23,7 +23,7 @@ export default function TopicCard({topic, index}) {
             {topic.title}
           </a>
         </header>
-        <button 
+        <button
           className={showGrader ? styles.gradeToggleOpen : styles.gradeToggleClosed}
           onClick={() => setShowGrader(!showGrader)}
         >
@@ -42,6 +42,9 @@ export default function TopicCard({topic, index}) {
         <li className={styles.infoItem}>last grade: {topic.EF}/5</li>
         <li className={styles.infoItem}>last reviewed: {topic.lastReviewed.toDateString()}</li>
       </ul>
+      <pre>
+        {topic.intervals.toString()}
+      </pre>
     </div>
   )
 }
