@@ -1,14 +1,21 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
-import Schedule from '@/components/Schedule'
-import { useScheduleContext } from '@/components/scheduleContext'
+import Schedule from '@/components/Schedule.jsx'
+import AddReviewItem from 'components/addreviewitem'
+import { useState } from 'react'
+import { PrismaClient } from '@prisma/client'
+import { serialize, deserialize } from 'superjson'
 
-function AddTopic() {
-  return <></>
-}
+const prisma = new PrismaClient()
 
-export default function Home() {
-  const [schedule, setSchedule] = useScheduleContext()
+export default function Home({ serializedItemsList }) {
+  const [showModal, setShowModal] = useState(false)
+
+  const handleOverlayClick = () => {
+    setShowModal(false)
+  }
+
+  const itemsList = deserialize(serializedItemsList)
 
   return (
     <div className={styles.container}>
@@ -24,11 +31,27 @@ export default function Home() {
         </h1>
 
         {
-          schedule.length > 0 &&
-          <Schedule schedule={schedule}/>
+          <Schedule itemsList={itemsList} showModal={showModal} setShowModal={setShowModal} />
         }
-        <AddTopic />
       </main>
+      <div
+        className={showModal ? styles.showOverlay : styles.hideOverlay}
+        onClick={handleOverlayClick}
+      >
+      </div>
+      <div className={showModal ? styles.showModal : styles.hideModal}>
+        <AddReviewItem />
+      </div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const data = await prisma.reviewItem.findMany()
+  const serializedItemsList = serialize(data);
+  return {
+    props: {
+      serializedItemsList
+    }
+  }
 }
