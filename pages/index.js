@@ -5,10 +5,10 @@ import AddReviewItem from 'components/addreviewitem'
 import { useState } from 'react'
 import { PrismaClient } from '@prisma/client'
 import { serialize, deserialize } from 'superjson'
-
-const prisma = new PrismaClient()
+import { useScheduleContext } from '@/components/ScheduleContext'
 
 export default function Home({ serializedItemsList }) {
+  //TODO: custom hook for modal
   const [showModal, setShowModal] = useState(false)
 
   const handleOverlayClick = () => {
@@ -45,6 +45,8 @@ export default function Home({ serializedItemsList }) {
     </div>
   )
 }
+
+const prisma = new PrismaClient()
 
 export async function getServerSideProps() {
   const data = await prisma.reviewItem.findMany()

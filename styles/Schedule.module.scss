@@ -68,3 +68,15 @@
 .addItemLink:active {
   background-color: rgb(123, 179, 39);
 }
+
+.addItemBtn {
+  background-color: greenyellow;
+  border-style: none;
+  border-radius: .5em;
+  width: 3em;
+  height: 1.5em;
+}
+
+.addItemBtn:hover {
+  background-color: rgb(126, 188, 34);
+}

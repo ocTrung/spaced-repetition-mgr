@@ -4,15 +4,12 @@ const prisma = new PrismaClient()
 
 export default async function handler(req, res) {
   try {
-    console.log(req.body)
-
-    const item = await prisma.reviewItem.create({
-      data: req.body
-    })
-
-    // console.log(item)
-
-    // res.status(200)
+    if (req.method === 'POST') {
+      const item = await prisma.reviewItem.create({
+        data: req.body
+      })
+      res.status(201).json(item)
+    }
   } catch (err) {
     console.log(err.message)
   }

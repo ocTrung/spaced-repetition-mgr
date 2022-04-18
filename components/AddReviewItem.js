@@ -4,18 +4,38 @@ import { ReviewItem } from '@/utils/reviewItemUtils'
 import { useState } from 'react'
 import superjson from 'superjson'
 
+async function addReviewItem(newItem) {
+  try {
+    console.log('POSTING..')
+    const res = await fetch('/api/reviewitem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newItem)
+    })
+
+    return res.json()
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default function AddReviewItem() {
   const [schedule, setSchedule] = useScheduleContext()
   const [title, setTitle] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     const newReviewItem = new ReviewItem(title, new Date())
     setSchedule([...schedule, newReviewItem])
     setTitle('')
 
-    addReviewItem(newReviewItem).then(res => console.log(res))
+    addReviewItem(newReviewItem)
+      .then(res => {
+        console.log('res', res)
+      })
   }
 
   const handleChange = (e) => {
@@ -42,16 +62,3 @@ export default function AddReviewItem() {
   )
 }
 
-async function addReviewItem(newItem) {
-  try {
-    const res = await fetch('/api/reviewitem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newItem)
-    })
-  } catch (error) {
-    console.log(error)
-  }
-}

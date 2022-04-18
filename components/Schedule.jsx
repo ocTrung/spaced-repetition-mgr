@@ -11,7 +11,7 @@ export default function Schedule({ itemsList, showModal, setShowModal }) {
     <div className={styles.scheduleCard}>
       <header className={styles.header}>
         <h2 className={styles.scheduleTitle}>Scheduler Queue</h2>
-        <button onClick={handleModalClick}>+</button>
+        <button className={styles.addItemBtn} onClick={handleModalClick}>+</button>
       </header>
       <div className={styles.cardTray}>
         {
