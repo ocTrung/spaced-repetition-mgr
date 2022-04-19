@@ -5,8 +5,15 @@
 .gradeBtn {
   border-radius: 9999px;
   border-style: none;
+  margin-inline: .2rem;
 }
 
 .gradeBtn:hover {
   background-color: rgb(120, 120, 254);
+}
+
+.heading {
+  font-size: 1rem;
+  display: inline-block;
+  margin-right: 1rem;
 }

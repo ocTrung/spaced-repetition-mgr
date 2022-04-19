@@ -18,7 +18,11 @@ export default function useUpdateReviewItems() {
   const mutation = useMutation(
     (updatedReviewItem) => putReviewItem(updatedReviewItem),
     {
-      onSuccess: () => queryClient.invalidateQueries('reviewItems')
+      onSuccess: (data, variables) => {
+        const staleData = queryClient.getQueryData('reviewItems')
+        const updatedData = staleData.map(d => d.id === variables.id ? data : d)
+        queryClient.setQueryData(['reviewItems'], updatedData)
+      }
     })
 
   return mutation

@@ -97,3 +97,8 @@
   padding-inline: 0.5rem;
   padding-block: .1rem;
 }
+
+.next {
+  composes: infoItem;
+  color: #827300;
+}

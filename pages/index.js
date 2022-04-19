@@ -1,21 +1,8 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import Schedule from '@/components/Schedule.jsx'
-import AddReviewItem from 'components/addreviewitem'
-import { useState } from 'react'
-import { useQuery, useQueryClient } from 'react-query'
 
 export default function Home() {
-
-
-
-  //TODO: custom hook for modal
-  const [showModal, setShowModal] = useState(false)
-
-  const handleOverlayClick = () => {
-    setShowModal(false)
-  }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -29,17 +16,8 @@ export default function Home() {
           Welcome, Broh
         </h1>
 
-        <Schedule showModal={showModal} setShowModal={setShowModal} />
-
+        <Schedule />
       </main>
-      <div
-        className={showModal ? styles.showOverlay : styles.hideOverlay}
-        onClick={handleOverlayClick}
-      >
-      </div>
-      <div className={showModal ? styles.showModal : styles.hideModal}>
-        <AddReviewItem />
-      </div>
     </div>
   )
 }

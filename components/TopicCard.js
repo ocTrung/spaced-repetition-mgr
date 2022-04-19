@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react'
 import { ReviewGrader } from './ReviewGrader'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
 import styles from '@/styles/TopicCard.module.scss'
+import useDeleteReviewItem from 'hooks/useDeleteReviewItem'
 
 export default function TopicCard({ topic, index }) {
-  const [showGrader, setShowGrader] = useState(false)
+  const [showUpdater, setShowUpdater] = useState(false)
   const [delay, setDelay] = useState('0ms')
-
+  const mutation = useDeleteReviewItem()
 
   useEffect(() => {
-    setShowGrader(false)
+    setShowUpdater(false)
     setDelay('0ms')
   }, [topic])
 
@@ -31,23 +32,29 @@ export default function TopicCard({ topic, index }) {
           </a>
         </header>
         <button
-          className={showGrader ? styles.gradeToggleOpen : styles.gradeToggleClosed}
-          onClick={() => setShowGrader(!showGrader)}
+          className={showUpdater ? styles.gradeToggleOpen : styles.gradeToggleClosed}
+          onClick={() => setShowUpdater(!showUpdater)}
         >
-          grade session
+          update
         </button>
         {
-          showGrader &&
-          <ReviewGrader topic={topic} />
+          showUpdater &&
+          <>
+            <ReviewGrader topic={topic} />
+            <button
+              onClick={() => mutation.mutate(topic)}
+            >
+              stop tracking
+            </button>
+          </>
         }
       </section>
 
       <hr className={styles.hr}></hr>
 
       <ul className={styles.info}>
-        <li className={styles.infoItem}>next: {getNextReviewDate(topic).toDateString()}</li>
-        <li className={styles.infoItem}>last grade: {topic.EF.toFixed(1)}/5</li>
-        <li className={styles.infoItem}>last reviewed: {new Date(topic.lastReviewed).toDateString()}</li>
+        <li className={styles.next}>next: {getNextReviewDate(topic).toDateString()}</li>
+        <li className={styles.infoItem}>last: {new Date(topic.lastReviewed).toDateString()}</li>
       </ul>
       <pre>
         {topic.intervals.toString()}

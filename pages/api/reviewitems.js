@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../../db'
 
 export default async function handler(req, res) {
   try {
@@ -26,7 +24,6 @@ export default async function handler(req, res) {
           intervals: item.intervals
         }
       })
-      console.log(updateItem)
       res.json(updateItem)
     }
 

@@ -15,6 +15,7 @@ export function ReviewGrader({ topic }) {
   }
   return (
     <div className={styles.gradeContainer}>
+      <h2 className={styles.heading}>Grader</h2>
       {
         gradeScale.map(g => (
           <button

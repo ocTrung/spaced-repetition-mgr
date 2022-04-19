@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "react-query"
 
-async function addReviewItem(newItem) {
+async function postReviewItem(newItem) {
   try {
     const res = await fetch('/api/reviewitems', {
       method: 'POST',
@@ -21,7 +21,7 @@ export default function useAddReviewItems() {
   const queryClient = useQueryClient()
 
   const mutation = useMutation(
-    newReviewItem => addReviewItem(newReviewItem),
+    newReviewItem => postReviewItem(newReviewItem),
     {
       onSuccess: () => queryClient.invalidateQueries('reviewItems')
     })
