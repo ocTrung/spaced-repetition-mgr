@@ -1,41 +1,19 @@
 import styles from '@/styles/AddReviewItem.module.scss'
-import { useScheduleContext } from '@/components/scheduleContext'
 import { ReviewItem } from '@/utils/reviewItemUtils'
 import { useState } from 'react'
-import superjson from 'superjson'
+import useAddReviewItems from 'hooks/useAddReviewItems'
 
-async function addReviewItem(newItem) {
-  try {
-    console.log('POSTING..')
-    const res = await fetch('/api/reviewitem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newItem)
-    })
-
-    return res.json()
-
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 export default function AddReviewItem() {
-  const [schedule, setSchedule] = useScheduleContext()
   const [title, setTitle] = useState('')
+  const mutation = useAddReviewItems()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const newReviewItem = new ReviewItem(title, new Date())
-    setSchedule([...schedule, newReviewItem])
-    setTitle('')
+    mutation.mutate(newReviewItem)
 
-    addReviewItem(newReviewItem)
-      .then(res => {
-        console.log('res', res)
-      })
+    setTitle('')
   }
 
   const handleChange = (e) => {

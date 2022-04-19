@@ -1,11 +1,13 @@
 import '../styles/globals.scss'
-import { ScheduleProvider } from '@/components/scheduleContext'
+import { QueryClientProvider, QueryClient } from 'react-query'
+
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ScheduleProvider>
+    <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
-    </ScheduleProvider>
+    </QueryClientProvider>
   )
 }
 

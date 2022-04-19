@@ -38,7 +38,7 @@ export default function TopicCard({ topic, index }) {
         </button>
         {
           showGrader &&
-          <ReviewGrader topicId={topic.title} />
+          <ReviewGrader topic={topic} />
         }
       </section>
 
@@ -47,7 +47,7 @@ export default function TopicCard({ topic, index }) {
       <ul className={styles.info}>
         <li className={styles.infoItem}>next: {getNextReviewDate(topic).toDateString()}</li>
         <li className={styles.infoItem}>last grade: {topic.EF.toFixed(1)}/5</li>
-        <li className={styles.infoItem}>last reviewed: {topic.lastReviewed.toDateString()}</li>
+        <li className={styles.infoItem}>last reviewed: {new Date(topic.lastReviewed).toDateString()}</li>
       </ul>
       <pre>
         {topic.intervals.toString()}

@@ -55,26 +55,13 @@
   align-items: flex-start;
 }
 
-.addItemLink {
-  padding: .5rem;
-  border-radius: .5rem;
-  background-color: greenyellow;
-}
-
-.addItemLink:hover {
-  background-color: rgb(156, 221, 59);
-}
-
-.addItemLink:active {
-  background-color: rgb(123, 179, 39);
-}
-
 .addItemBtn {
   background-color: greenyellow;
   border-style: none;
   border-radius: .5em;
   width: 3em;
   height: 1.5em;
+  margin-left: 1rem;
 }
 
 .addItemBtn:hover {

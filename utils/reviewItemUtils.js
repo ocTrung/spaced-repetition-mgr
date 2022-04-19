@@ -31,7 +31,7 @@ function calcNextInterval(intervalCount, EF) {
   if (intervalCount === 2)
     return 6
 
-  return intervalCount * EF
+  return Math.floor(intervalCount * EF)
 }
 
 // Formula provided by SM2 algorithm

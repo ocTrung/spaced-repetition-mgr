@@ -3,19 +3,18 @@ import styles from '@/styles/Home.module.scss'
 import Schedule from '@/components/Schedule.jsx'
 import AddReviewItem from 'components/addreviewitem'
 import { useState } from 'react'
-import { PrismaClient } from '@prisma/client'
-import { serialize, deserialize } from 'superjson'
-import { useScheduleContext } from '@/components/ScheduleContext'
+import { useQuery, useQueryClient } from 'react-query'
 
-export default function Home({ serializedItemsList }) {
+export default function Home() {
+
+
+
   //TODO: custom hook for modal
   const [showModal, setShowModal] = useState(false)
 
   const handleOverlayClick = () => {
     setShowModal(false)
   }
-
-  const itemsList = deserialize(serializedItemsList)
 
   return (
     <div className={styles.container}>
@@ -30,9 +29,8 @@ export default function Home({ serializedItemsList }) {
           Welcome, Broh
         </h1>
 
-        {
-          <Schedule itemsList={itemsList} showModal={showModal} setShowModal={setShowModal} />
-        }
+        <Schedule showModal={showModal} setShowModal={setShowModal} />
+
       </main>
       <div
         className={showModal ? styles.showOverlay : styles.hideOverlay}
@@ -44,16 +42,4 @@ export default function Home({ serializedItemsList }) {
       </div>
     </div>
   )
-}
-
-const prisma = new PrismaClient()
-
-export async function getServerSideProps() {
-  const data = await prisma.reviewItem.findMany()
-  const serializedItemsList = serialize(data);
-  return {
-    props: {
-      serializedItemsList
-    }
-  }
 }
