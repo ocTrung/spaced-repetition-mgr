@@ -5,7 +5,6 @@ import { getSession } from 'next-auth/react'
 import Navbar from '@/components/Navbar'
 
 export default function Home({ session }) {
-  console.log('page', session?.user)
   return (
     <div className={styles.container}>
       <Navbar />
@@ -28,8 +27,6 @@ export default function Home({ session }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
-
-  console.log('session', session)
 
   if (!session)
     return {

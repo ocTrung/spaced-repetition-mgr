@@ -1,5 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { prisma } from '../../../db'
 
 export default NextAuth({
   providers: [
@@ -8,13 +10,12 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
+  adapter: PrismaAdapter(prisma),
   callbacks: {
-    async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      if (url.startsWith("/")) return new URL(url, baseUrl).toString()
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url
-      return baseUrl
+    async session({ session, token, user }) {
+      session.user.id = user.id
+
+      return session
     }
   }
 })
