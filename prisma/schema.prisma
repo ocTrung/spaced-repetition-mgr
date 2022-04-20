@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -18,3 +15,25 @@ model reviewItem {
   EF           Float    @default(2.5)
   intervals    Int[]
 }
+
+// model User {
+//   id Int @id @default(autoincrement())
+//   email String @unique
+//   reviewItems ReviewItem[]
+// }
+
+// model ReviewItem {
+//   id           Int      @id @default(autoincrement())
+//   title        String
+//   startDate    DateTime @default(now())
+//   lastReviewed DateTime @default(now())
+//   EF           Float    @default(2.5)
+//   intervals    Int[]
+//   user User @relation(fields: [userId], references: [id])
+//   userId Int
+// }
+
+// enum Role {
+//   USER
+//   ADMIN
+// }
