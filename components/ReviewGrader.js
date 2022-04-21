@@ -8,9 +8,10 @@ export function ReviewGrader({ topic }) {
   const mutation = useUpdateReviewItems()
 
   const handleGradeClick = (e) => {
-    const quality = parseInt(e.target.dataset.grade)
+    const sessionGrade = parseInt(e.target.dataset.grade)
     const reviewItem = topic
-    const updatedReviewItem = addReviewSession(reviewItem, quality)
+    const updatedReviewItem = addReviewSession(reviewItem, sessionGrade)
+
     mutation.mutate(updatedReviewItem)
   }
   return (

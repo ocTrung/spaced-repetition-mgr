@@ -8,14 +8,15 @@ datasource db {
 }
 
 model ReviewItem {
-  id           Int      @id @default(autoincrement())
-  title        String
-  startDate    DateTime @default(now())
-  lastReviewed DateTime @default(now())
-  EF           Float    @default(2.5)
-  intervals    Int[]
-  user         User     @relation(fields: [userId], references: [id])
-  userId       String
+  id            Int      @id @default(autoincrement())
+  title         String
+  startDate     DateTime @default(now())
+  lastReviewed  DateTime @default(now())
+  EF            Float    @default(2.5)
+  intervals     Int[]
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String
+  sessionGrades Int[]
 }
 
 model Account {

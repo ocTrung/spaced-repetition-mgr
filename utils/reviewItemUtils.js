@@ -5,6 +5,7 @@ export class ReviewItem {
     this.lastReviewed = startDate
     this.EF = 2.5 //default value
     this.intervals = []
+    this.sessionGrades = []
   }
 }
 
@@ -16,10 +17,16 @@ export function getNextReviewDate(reviewItem) {
   return newDate
 }
 
-export function addReviewSession(reviewItem, quality) {
-  const nextEF = calcEF(reviewItem.EF, quality)
+export function addReviewSession(reviewItem, sessionGrade) {
+  const nextEF = calcEF(reviewItem.EF, sessionGrade)
   const nextInterval = calcNextInterval(reviewItem.intervals.length, nextEF)
-  return { ...reviewItem, EF: nextEF, lastReviewed: new Date(), intervals: [...reviewItem.intervals, nextInterval] }
+  return {
+    ...reviewItem,
+    EF: nextEF,
+    lastReviewed: new Date(),
+    intervals: [...reviewItem.intervals, nextInterval],
+    sessionGrades: [...reviewItem.sessionGrades, sessionGrade]
+  }
 }
 
 function calcNextInterval(intervalCount, EF) {
@@ -35,8 +42,8 @@ function calcNextInterval(intervalCount, EF) {
 }
 
 // Formula provided by SM2 algorithm
-// EF: prev value of the E-Factor, quality: rating for previous review session
-export function calcEF(EF, quality) {
-  return EF + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
+// EF: prev value of the E-Factor, sessionGrade: rating for previous review session
+export function calcEF(EF, sessionGrade) {
+  return EF + (0.1 - (5 - sessionGrade) * (0.08 + (5 - sessionGrade) * 0.02))
 }
 

@@ -34,7 +34,8 @@ export default async function handler(req, res) {
         data: {
           EF: item.EF,
           lastReviewed: item.lastReviewed,
-          intervals: item.intervals
+          intervals: item.intervals,
+          sessionGrades: item.sessionGrades
         }
       })
       res.json(updateItem)
