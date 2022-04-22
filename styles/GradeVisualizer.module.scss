@@ -13,14 +13,13 @@ $block-size: 1rem;
 
 .block {
   height: $block-size;
-  animation: showBlock 1.5s ease-out;
+  animation: showBlock 2s cubic-bezier(.18, .89, .32, 1.28);
   animation-fill-mode: forwards;
   opacity: 0;
 }
 
 @keyframes showBlock {
   100% {
-    transform: translateY(0rem);
     opacity: 100%;
   }
 }

@@ -19,7 +19,6 @@ export default function Home({ session }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          {`Welcome, ${firstName || 'Friendo'}`}
         </h1>
 
         <Schedule />

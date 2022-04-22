@@ -9,7 +9,7 @@ const gradeToColor = [
   styles.five
 ]
 
-export function VisualizerBlock({ sessionGrade }) {
+export function VisualizerBlock({ sessionGrade, index }) {
   const baseStyle = styles.block
   const color = gradeToColor[sessionGrade]
   const style = baseStyle + ' ' + color
@@ -25,7 +25,7 @@ export default function GradeVisualizer({ sessionGrades }) {
     <div className={styles.container}>
       {
         sessionGrades.map((grade, i) => (
-          <VisualizerBlock key={i} sessionGrade={grade} />
+          <VisualizerBlock key={i} sessionGrade={grade} index={i} />
         ))
       }
     </div>

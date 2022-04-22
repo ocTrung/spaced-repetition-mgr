@@ -17,7 +17,7 @@ export default function TopicCard({ topic, index }) {
 
   // Only add animation delay when entire schedule renders
   useEffect(() => {
-    setDelay(index * 200 + 'ms')
+    setDelay(index * 300 + 'ms')
   }, [])
 
   const nextDate = getNextReviewDate(topic)
@@ -25,7 +25,10 @@ export default function TopicCard({ topic, index }) {
   const month = nextDate.toLocaleString('default', { month: 'long' })
 
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      style={{ animationDelay: delay }}
+    >
       <div className={styles.cardLeft}>
         <div className={styles.date}>
           <p className={styles.dateTitle}>due</p>
@@ -36,7 +39,6 @@ export default function TopicCard({ topic, index }) {
       <div
         key={topic.title}
         className={styles.main}
-        style={{ animationDelay: delay }}
       >
         <section className={styles.topSection}>
           <header className={styles.cardHeader}>
