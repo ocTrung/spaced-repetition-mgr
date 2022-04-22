@@ -4,16 +4,17 @@ import useReviewItems from 'hooks/useReviewItems'
 import Modal from '@/components/Modal'
 import AddReviewItem from './AddReviewItem'
 import { useState } from 'react'
+import { getNextReviewDate } from '@/utils/reviewItemUtils'
 
 export function CardTray() {
   const { isLoading, isError, data, error } = useReviewItems()
   const reviewItems = data
 
   const schedule = reviewItems?.sort((a, b) => {
-    const lastReviewedDateA = new Date(a.lastReviewed)
-    const lastReviewedDateB = new Date(b.lastReviewed)
+    const nextReviewA = getNextReviewDate(a)
+    const nextReviewB = getNextReviewDate(b)
 
-    return lastReviewedDateA - lastReviewedDateB
+    return nextReviewA - nextReviewB
   })
 
   if (isLoading)
