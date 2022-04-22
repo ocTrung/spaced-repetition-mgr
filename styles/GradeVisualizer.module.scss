@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "sass:math";
+@import './variables.module.scss';
+
+$grade-color-base: rgb(181, 229, 255);
+$block-size: 1rem;
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $block-size);
+  gap: .1rem;
+  margin-top: .5rem;
+}
+
+.block {
+  height: $block-size;
+  animation: showBlock 1.5s ease-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes showBlock {
+  100% {
+    transform: translateY(0rem);
+    opacity: 100%;
+  }
+}
+
+.zero {
+  background-color: color.scale($grade-color-base, $lightness: 0%);
+}
+
+.one {
+  background-color: color.scale($grade-color-base, $lightness: -10%);
+}
+
+.two {
+  background-color: color.scale($grade-color-base, $lightness: -20%);
+}
+
+.three {
+  background-color: color.scale($grade-color-base, $lightness: -30%);
+}
+
+.four {
+  background-color: color.scale($grade-color-base, $lightness: -40%);
+}
+
+.five {
+  background-color: color.scale($grade-color-base, $lightness: -50%);
+}

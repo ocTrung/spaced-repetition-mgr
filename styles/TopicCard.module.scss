@@ -83,7 +83,7 @@
   list-style: none;
   padding-left: 0;
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
   margin: 0;
   justify-content: flex-start;
   color: rgb(130, 130, 130);
@@ -94,11 +94,10 @@
   /* background-color: greenyellow; */
   border-radius: 1rem;
   font-size: .8rem;
-  padding-inline: 0.5rem;
   padding-block: .1rem;
 }
 
 .next {
   composes: infoItem;
-  color: #827300;
+  color: #eb7e09;
 }

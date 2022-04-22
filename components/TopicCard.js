@@ -3,6 +3,7 @@ import { ReviewGrader } from './ReviewGrader'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
 import styles from '@/styles/TopicCard.module.scss'
 import useDeleteReviewItem from 'hooks/useDeleteReviewItem'
+import GradeVisualizer from './GradeVisualizer'
 
 export default function TopicCard({ topic, index }) {
   const [showUpdater, setShowUpdater] = useState(false)
@@ -56,9 +57,7 @@ export default function TopicCard({ topic, index }) {
         <li className={styles.next}>next: {getNextReviewDate(topic).toDateString()}</li>
         <li className={styles.infoItem}>last: {new Date(topic.lastReviewed).toDateString()}</li>
       </ul>
-      <pre>
-        {topic.intervals.toString()}
-      </pre>
+      <GradeVisualizer sessionGrades={topic.sessionGrades} />
     </div>
   )
 }
