@@ -66,22 +66,27 @@
 .gradeToggleClosed {
   composes: gradeToggle;
   background-color: transparent;
-  opacity: 50%;
+  opacity: 40%;
 }
 
 .gradeToggleClosed:hover {
   opacity: 100%;
 }
 
-.gradeToggleOpen {
-  composes: gradeToggle;
-  border-color: rgb(120, 120, 254);
-  color: rgb(120, 120, 254)
+.gradeToggle:active {
+  border-color: $grade-color-5;
+  color: $grade-color-5;
 }
 
-.gradeToggle:active {
-  border-color: rgb(0, 0, 255);
-  color: rgb(0, 0, 255)
+.gradeToggleOpen {
+  composes: gradeToggle;
+  border-color: rgb(209, 209, 209);
+  color: rgb(55, 55, 55);
+  background-color: rgb(228, 228, 228);
+}
+
+.gradeToggleOpen:hover {
+  opacity: 50%;
 }
 
 .hr {
