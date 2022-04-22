@@ -1,6 +1,12 @@
 .card {
+  display: grid;
+  grid-template-columns: auto 1fr;
   background-color: rgb(249, 249, 249);
-  padding: .5rem;
+  padding-block: 0.5rem;
+  padding-inline: .8rem;
+}
+
+.main {
   display: flex;
   flex-direction: column;
   animation-name: cardAppear;
@@ -101,4 +107,43 @@
   composes: infoItem;
   // color: #eb7e09;
   font-weight: 600;
+}
+
+.date {
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(231, 231, 231);
+  border-radius: .5rem;
+  // margin-top: .5rem;
+}
+
+.day {
+  margin: 0;
+  margin-block: .1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.month {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.dateTitle {
+  font-size: .7rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0rem;
+  opacity: 40%;
+}
+
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  // padding-block: .5rem;
+  padding-right: .8rem;
+  justify-content: flex-start;
 }
