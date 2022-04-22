@@ -1,0 +1,50 @@
+@import './variables.module.scss';
+
+.gradeContainer {
+  margin-top: .5rem;
+  display: flex;
+  align-items: center;
+}
+
+.gradeBtn {
+  // border-radius: 9999px;
+  border-style: none;
+  margin-inline: .2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  color: white;
+}
+
+.gradeBtn:hover {
+  opacity: 70%;
+}
+
+.heading {
+  font-size: 1rem;
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.zero {
+  background-color: $grade-color-0;
+}
+
+.one {
+  background-color: $grade-color-1;
+}
+
+.two {
+  background-color: $grade-color-2;
+}
+
+.three {
+  background-color: $grade-color-3;
+}
+
+.four {
+  background-color: $grade-color-4;
+}
+
+.five {
+  background-color: $grade-color-5;
+}

@@ -2,7 +2,6 @@
 @use "sass:math";
 @import './variables.module.scss';
 
-$grade-color-base: rgb(181, 229, 255);
 $block-size: 1rem;
 
 .container {
@@ -27,25 +26,25 @@ $block-size: 1rem;
 }
 
 .zero {
-  background-color: color.scale($grade-color-base, $lightness: 0%);
+  background-color: $grade-color-0;
 }
 
 .one {
-  background-color: color.scale($grade-color-base, $lightness: -10%);
+  background-color: $grade-color-1;
 }
 
 .two {
-  background-color: color.scale($grade-color-base, $lightness: -20%);
+  background-color: $grade-color-2;
 }
 
 .three {
-  background-color: color.scale($grade-color-base, $lightness: -30%);
+  background-color: $grade-color-3;
 }
 
 .four {
-  background-color: color.scale($grade-color-base, $lightness: -40%);
+  background-color: $grade-color-4;
 }
 
 .five {
-  background-color: color.scale($grade-color-base, $lightness: -50%);
+  background-color: $grade-color-5;
 }

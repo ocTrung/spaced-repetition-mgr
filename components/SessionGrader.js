@@ -1,10 +1,19 @@
-import styles from '@/styles/ReviewGrader.module.scss'
+import styles from '@/styles/SessionGrader.module.scss'
 import { addReviewSession } from '@/utils/reviewItemUtils'
 import useUpdateReviewItems from 'hooks/useUpdateReviewItems'
 
 const gradeScale = [0, 1, 2, 3, 4, 5]
 
-export function ReviewGrader({ topic }) {
+const gradeToColor = [
+  styles.zero,
+  styles.one,
+  styles.two,
+  styles.three,
+  styles.four,
+  styles.five
+]
+
+export function SessionGrader({ topic }) {
   const mutation = useUpdateReviewItems()
 
   const handleGradeClick = (e) => {
@@ -16,12 +25,12 @@ export function ReviewGrader({ topic }) {
   }
   return (
     <div className={styles.gradeContainer}>
-      <h2 className={styles.heading}>Grader</h2>
+      <h2 className={styles.heading}>Grade</h2>
       {
         gradeScale.map(g => (
           <button
             key={g}
-            className={styles.gradeBtn}
+            className={styles.gradeBtn + ' ' + gradeToColor[g]}
             data-grade={g}
             onClick={handleGradeClick}
           >

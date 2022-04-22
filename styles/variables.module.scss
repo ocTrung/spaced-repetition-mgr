@@ -1,5 +1,15 @@
+@use "sass:color";
+
 $primary-color500: rgb(154, 154, 255);
 $primary-color600: rgb(111, 111, 253);
 $primary-color700: rgb(77, 77, 255);
 $primary-color800: rgb(41, 41, 255);
 $primary-color900: rgb(12, 12, 255);
+
+$grade-color-base: rgb(181, 229, 255);
+$grade-color-0: color.scale($grade-color-base, $lightness: 0%);
+$grade-color-1: color.scale($grade-color-base, $lightness: -10%);
+$grade-color-2: color.scale($grade-color-base, $lightness: -20%);
+$grade-color-3: color.scale($grade-color-base, $lightness: -30%);
+$grade-color-4: color.scale($grade-color-base, $lightness: -40%);
+$grade-color-5: color.scale($grade-color-base, $lightness: -50%);

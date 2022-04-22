@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ReviewGrader } from './ReviewGrader'
+import { SessionGrader } from './SessionGrader'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
 import styles from '@/styles/TopicCard.module.scss'
 import useDeleteReviewItem from 'hooks/useDeleteReviewItem'
@@ -41,7 +41,7 @@ export default function TopicCard({ topic, index }) {
         {
           showUpdater &&
           <>
-            <ReviewGrader topic={topic} />
+            <SessionGrader topic={topic} />
             <button
               onClick={() => mutation.mutate(topic)}
             >
