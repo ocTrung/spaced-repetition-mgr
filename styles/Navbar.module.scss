@@ -10,4 +10,11 @@
   padding-inline: 1rem;
   padding: .5rem;
   background-color: rgb(244, 244, 244);
+  border-radius: .5rem;
+}
+
+.signOut:hover {
+  background-color: rgb(213, 213, 213);
+  background-color: rgb(247, 51, 51);
+  color: whitesmoke;
 }

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
-import Schedule from '@/components/Schedule.jsx'
+import Schedule from '@/components/Schedule.js'
 import { getSession } from 'next-auth/react'
 import Navbar from '@/components/Navbar'
 

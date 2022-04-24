@@ -5,20 +5,20 @@
   left: 50%;
   top: 50%;
   transition: all 400ms ease-in;
-  visibility: hidden;
   transform: translate(-50%, -75%);
 }
 
 .hideModal {
   composes: modal;
   opacity: 0%;
+  pointer-events: none;
 }
 
 .showModal {
   composes: modal;
-  visibility: visible;
   opacity: 100%;
   transform: translate(-50%, -50%);
+  pointer-events: auto;
 }
 
 .overlay {

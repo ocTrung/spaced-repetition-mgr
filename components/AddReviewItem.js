@@ -1,10 +1,10 @@
 import styles from '@/styles/AddReviewItem.module.scss'
 import { ReviewItem } from '@/utils/reviewItemUtils'
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
 import useAddReviewItems from 'hooks/useAddReviewItems'
 
 
-export default function AddReviewItem() {
+const AddReviewItem = (props, ref) => {
   const [title, setTitle] = useState('')
   const mutation = useAddReviewItems()
 
@@ -33,10 +33,13 @@ export default function AddReviewItem() {
           type='text'
           onChange={handleChange}
           value={title}
+          ref={ref}
         />
         <button className={styles.submitBtn} type='submit'>add item</button>
       </form >
     </div>
   )
 }
+
+export default forwardRef(AddReviewItem)
 
