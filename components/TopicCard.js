@@ -15,7 +15,7 @@ export default function TopicCard({ topic, index }) {
     setDelay('0ms')
   }, [topic])
 
-  // Only add animation delay when entire schedule renders
+  // Only add animation delay when entire list renders
   useEffect(() => {
     setDelay(index * 300 + 'ms')
   }, [])

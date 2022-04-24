@@ -25,7 +25,7 @@ const AddReviewItem = (props, ref) => {
       <h1 className={styles.heading}>Add New Review Item</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.titleLabel} htmlFor="titleInput">
-          add item
+          Title
         </label>
         <input
           className={styles.input}
