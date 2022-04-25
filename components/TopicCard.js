@@ -50,13 +50,14 @@ export default function TopicCard({ topic, index }) {
             className={showUpdater ? styles.gradeToggleOpen : styles.gradeToggleClosed}
             onClick={() => setShowUpdater(!showUpdater)}
           >
-            update
+            {showUpdater ? 'close' : 'update'}
           </button>
           {
             showUpdater &&
             <>
               <SessionGrader topic={topic} />
               <button
+                className={styles.stopTrackingBtn}
                 onClick={() => mutation.mutate(topic)}
               >
                 stop tracking
@@ -68,8 +69,7 @@ export default function TopicCard({ topic, index }) {
         <hr className={styles.hr}></hr>
 
         <ul className={styles.info}>
-          {/* <li className={styles.next}>next: {getNextReviewDate(topic).toDateString()}</li> */}
-          <li className={styles.infoItem}>current interval: {topic.intervals[topic.intervals.length - 1]}</li>
+          <li className={styles.infoItem}>current interval: {topic.intervals[topic.intervals.length - 1] || 0}</li>
           <li className={styles.infoItem}>started: {new Date(topic.startDate).toDateString()}</li>
         </ul>
         <GradeVisualizer sessionGrades={topic.sessionGrades} />

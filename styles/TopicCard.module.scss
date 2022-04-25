@@ -52,15 +52,18 @@
   display: inline-block;
 }
 
+.btn {
+  border-radius: .25rem;
+  font-size: 1rem;
+}
 
 .gradeToggle {
+  composes: btn;
   margin-top: .5rem;
   margin-bottom: .2rem;
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-radius: .25rem;
-  font-size: 1rem;
 }
 
 .gradeToggleClosed {
@@ -80,13 +83,15 @@
 
 .gradeToggleOpen {
   composes: gradeToggle;
-  border-color: rgb(209, 209, 209);
-  color: rgb(55, 55, 55);
-  background-color: rgb(228, 228, 228);
+  border-color: $gray-200;
+  color: $gray-700;
+  background-color: $gray-200;
 }
 
 .gradeToggleOpen:hover {
-  opacity: 50%;
+  border-color: $gray-300;
+  color: $gray-700;
+  background-color: $gray-300;
 }
 
 .hr {
@@ -108,7 +113,6 @@
 }
 
 .infoItem {
-  /* background-color: greenyellow; */
   border-radius: 1rem;
   font-size: .8rem;
   padding-block: .1rem;
@@ -116,7 +120,6 @@
 
 .next {
   composes: infoItem;
-  // color: #eb7e09;
   font-weight: 600;
 }
 
@@ -128,7 +131,6 @@
   justify-content: flex-start;
   background-color: #f7f7f7;
   border-radius: .5rem;
-  // margin-top: .5rem;
 }
 
 .day {
@@ -154,7 +156,18 @@
 .cardLeft {
   display: flex;
   flex-direction: column;
-  // padding-block: .5rem;
   padding-right: .8rem;
   justify-content: flex-start;
+}
+
+.stopTrackingBtn {
+  composes: btn;
+  border-style: none;
+  margin-top: 1rem;
+  color: $gray-500;
+}
+
+.stopTrackingBtn:hover {
+  background-color: rgb(247, 51, 51);
+  color: whitesmoke;
 }
