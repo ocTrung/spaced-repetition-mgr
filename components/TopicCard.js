@@ -17,7 +17,7 @@ export default function TopicCard({ topic, index }) {
 
   // Only add animation delay when entire list renders
   useEffect(() => {
-    setDelay(index * 300 + 'ms')
+    setDelay(index * 200 + 'ms')
   }, [])
 
   const nextDate = getNextReviewDate(topic)
