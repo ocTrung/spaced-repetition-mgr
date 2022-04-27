@@ -60,12 +60,14 @@ export default function DemoSchedule() {
       <div className={styles.scheduleCard}>
         <header className={styles.header}>
           <h2 className={styles.scheduleTitle}>Review Scheduler</h2>
-          <button className={styles.addItemBtn} onClick={handleModalClick}>+</button>
+          <button className={styles.addItemBtn} onClick={handleModalClick}>
+            <img src='/plus.svg' height='10' width='10'></img>
+          </button>
         </header>
         <DemoCardTray data={data} setData={setData} />
       </div>
       <Modal handleOverlayClick={handleOverlayClick} showModal={showModal}>
-        <DemoAddReviewItem ref={inputRef} data={data} setData={setData} />
+        <DemoAddReviewItem ref={inputRef} data={data} setData={setData} setShowModal={setShowModal} />
       </Modal>
     </>
 

@@ -56,12 +56,14 @@ export default function Schedule() {
       <div className={styles.scheduleCard}>
         <header className={styles.header}>
           <h2 className={styles.scheduleTitle}>Review Scheduler</h2>
-          <button className={styles.addItemBtn} onClick={handleModalClick}>+</button>
+          <button className={styles.addItemBtn} onClick={handleModalClick}>
+            <img src='/plus.svg' height='10' width='10'></img>
+          </button>
         </header>
         <CardTray />
       </div>
       <Modal handleOverlayClick={handleOverlayClick} showModal={showModal}>
-        <AddReviewItem ref={inputRef} />
+        <AddReviewItem ref={inputRef} setShowModal={setShowModal} ß />
       </Modal>
     </>
 
