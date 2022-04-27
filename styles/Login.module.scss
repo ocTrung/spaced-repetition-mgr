@@ -1,0 +1,117 @@
+@use "sass:color";
+@import './variables.module.scss';
+
+.main {
+  padding-inline: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginBtn {
+  border-style: none;
+  margin-right: 1rem;
+  padding-block: .5rem;
+  background-color: $theme;
+  border-radius: .5rem;
+  color: $gray-100;
+}
+
+.loginBtn:hover {
+  background-color: color.scale($theme, $lightness: 40%);
+}
+
+.sectionIntro {
+  height: calc(100vh - 4rem); //4rem = header size
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-content: start;
+  align-items: center;
+}
+
+.introHeading {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.introSubheading {
+  font-weight: 500;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.em {
+  color: $grade-color-5;
+  font-style: normal;
+}
+
+.ctaBtn {
+  padding-block: .2rem;
+  padding-inline: .5rem;
+  border-radius: .5rem;
+}
+
+.learnMoreBtn {
+  composes: ctaBtn;
+  border-style: solid;
+}
+
+.learnMoreBtn:hover {
+  color: color.scale($gray-900, $lightness: 40%);
+  border-color: color.scale($gray-900, $lightness: 40%);
+}
+
+.tryItBtn {
+  composes: ctaBtn;
+  border-style: solid;
+  border-color: $theme;
+  background-color: $theme;
+  color: white;
+}
+
+.tryItBtn:hover {
+  background-color: color.scale($theme, $lightness: 40%);
+  border-color: color.scale($theme, $lightness: 40%);
+}
+
+.sectionLearnMore {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.info {
+  color: $gray-600;
+  font-style: italic;
+}
+
+.wikiLink {
+  text-decoration: underline;
+  color: $gray-600;
+}
+
+.wikiLink:hover {
+  color: $theme;
+}
+
+.listText {
+  margin-bottom: .1rem;
+}
+
+.tutorialImage {
+  margin-block: rem;
+}
+
+.sectionSolution {
+  height: 100vh;
+  width: 100%;
+  font-size: 1.2rem;
+}
