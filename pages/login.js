@@ -1,6 +1,7 @@
 import { getProviders, signIn } from "next-auth/react"
 import styles from '@/styles/Login.module.scss'
 import { useRef, useEffect } from 'react'
+import Link from "next/link"
 import Image from 'next/image'
 import gradeSessionScreenShot from '../public/gradeSessionScreenShot.png'
 import newIntervalScreenShot from '../public/newIntervalScreenShot.png'
@@ -51,14 +52,16 @@ export default function Login({ providers }) {
             >
               Learn more
             </a>
-            <button className={styles.tryItBtn}>Try it out</button>
+            <Link href='/demo'>
+              <a className={styles.tryItBtn}>Try it out</a>
+            </Link>
           </div>
         </section>
+
         <section id='learnMore' className={styles.sectionLearnMore} ref={learnMoreRef}>
           <h2>The Problem</h2>
           <p>✔️ Using spaced repetition when learning a single topic is fairly simple.</p>
           <p>❌ Using spaced repetition when learning multiple topics is hard.</p>
-          <br></br>
           <p className={styles.info}>Spaced repetition is a strategy for remembering what you learn by reviewing the topic at spaced intervals that gradually increase. </p>
           <a className={styles.wikiLink} href='https://en.wikipedia.org/wiki/Spaced_repetition'>Learn more about spaced repetition</a>
         </section>
