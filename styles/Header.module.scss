@@ -1,0 +1,35 @@
+@use "sass:color";
+@import './variables.module.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginBtn {
+  border-style: none;
+  margin-right: 1rem;
+  padding-block: .5rem;
+  background-color: $theme;
+  border-radius: .5rem;
+  color: $gray-100;
+}
+
+.loginBtn:hover {
+  background-color: color.scale($theme, $lightness: 40%);
+}
+
+.homeLink {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.homeLink:hover {
+  opacity: 50%;
+}

@@ -1,5 +1,5 @@
 import styles from '@/styles/Schedule.module.scss'
-import DemoTopicCard from './DemoTopicCard'
+import DemoReviewItemCard from './DemoReviewItemCard'
 import Modal from '@/components/Modal'
 import DemoAddReviewItem from './DemoAddReviewItem'
 import { useState, useRef, useEffect } from 'react'
@@ -18,8 +18,8 @@ export function DemoCardTray({ data, setData }) {
   return (
     <div className={styles.cardTray}>
       {
-        schedule.map((topic, i) => (
-          <DemoTopicCard key={topic.title} topic={topic} index={i} data={data} setData={setData} />
+        schedule.map((reviewItem, i) => (
+          <DemoReviewItemCard key={reviewItem.title} reviewItem={reviewItem} index={i} data={data} setData={setData} />
         ))
       }
     </div>

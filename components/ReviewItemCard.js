@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { SessionGrader } from './SessionGrader'
-import { getNextReviewDate } from '@/utils/reviewItemUtils'
-import styles from '@/styles/TopicCard.module.scss'
+import { SessionGrader } from '@/components/SessionGrader'
+import GradeVisualizer from '@/components/GradeVisualizer'
 import useDeleteReviewItem from 'hooks/useDeleteReviewItem'
-import GradeVisualizer from './GradeVisualizer'
+import { getNextReviewDate } from '@/utils/reviewItemUtils'
+import styles from '@/styles/ReviewItemCard.module.scss'
 
-export default function TopicCard({ topic, index }) {
+export default function ReviewItemCard({ reviewItem, index }) {
   const [showUpdater, setShowUpdater] = useState(false)
   const [delay, setDelay] = useState('0ms')
   const mutation = useDeleteReviewItem()
@@ -13,22 +13,19 @@ export default function TopicCard({ topic, index }) {
   useEffect(() => {
     setShowUpdater(false)
     setDelay('0ms')
-  }, [topic])
+  }, [reviewItem])
 
   // Only add animation delay when entire list renders
   useEffect(() => {
     setDelay(index * 200 + 'ms')
   }, [])
 
-  const nextDate = getNextReviewDate(topic)
+  const nextDate = getNextReviewDate(reviewItem)
   const day = nextDate.getDate()
   const month = nextDate.toLocaleString('default', { month: 'long' })
 
   return (
-    <div
-      className={styles.card}
-      style={{ animationDelay: delay }}
-    >
+    <div className={styles.card} style={{ animationDelay: delay }}>
       <div className={styles.cardLeft}>
         <div className={styles.date}>
           <p className={styles.dateTitle}>due</p>
@@ -37,13 +34,13 @@ export default function TopicCard({ topic, index }) {
         </div>
       </div>
       <div
-        key={topic.title}
+        key={reviewItem.title}
         className={styles.main}
       >
         <section className={styles.topSection}>
           <header className={styles.cardHeader}>
             <a className={styles.cardTitle}>
-              {topic.title}
+              {reviewItem.title}
             </a>
           </header>
           <button
@@ -55,10 +52,10 @@ export default function TopicCard({ topic, index }) {
           {
             showUpdater &&
             <>
-              <SessionGrader topic={topic} />
+              <SessionGrader reviewItem={reviewItem} />
               <button
                 className={styles.stopTrackingBtn}
-                onClick={() => mutation.mutate(topic)}
+                onClick={() => mutation.mutate(reviewItem)}
               >
                 stop tracking
               </button>
@@ -69,10 +66,10 @@ export default function TopicCard({ topic, index }) {
         <hr className={styles.hr}></hr>
 
         <ul className={styles.info}>
-          <li className={styles.infoItem}>current interval: {topic.intervals[topic.intervals.length - 1] || 0}</li>
-          <li className={styles.infoItem}>started: {new Date(topic.startDate).toDateString()}</li>
+          <li className={styles.infoItem}>current interval: {reviewItem.intervals[reviewItem.intervals.length - 1] || 0}</li>
+          <li className={styles.infoItem}>started: {new Date(reviewItem.startDate).toDateString()}</li>
         </ul>
-        <GradeVisualizer sessionGrades={topic.sessionGrades} />
+        <GradeVisualizer sessionGrades={reviewItem.sessionGrades} />
       </div>
     </div>
   )

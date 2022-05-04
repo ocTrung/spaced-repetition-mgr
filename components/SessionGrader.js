@@ -13,16 +13,15 @@ const gradeToColor = [
   styles.five
 ]
 
-export function SessionGrader({ topic }) {
+export function SessionGrader({ reviewItem }) {
   const mutation = useUpdateReviewItems()
 
   const handleGradeClick = (e) => {
     const sessionGrade = parseInt(e.target.dataset.grade)
-    const reviewItem = topic
     const updatedReviewItem = addReviewSession(reviewItem, sessionGrade)
-
     mutation.mutate(updatedReviewItem)
   }
+
   return (
     <div className={styles.gradeContainer}>
       <h2 className={styles.heading}>Grade</h2>

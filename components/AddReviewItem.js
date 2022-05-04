@@ -12,7 +12,6 @@ const AddReviewItem = ({ setShowModal }, ref) => {
     e.preventDefault()
     const newReviewItem = new ReviewItem(title, new Date())
     mutation.mutate(newReviewItem)
-
     setTitle('')
   }
 

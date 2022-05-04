@@ -13,7 +13,7 @@ $block-size: 1rem;
 
 .block {
   height: $block-size;
-  animation: showBlock 2s cubic-bezier(.18, .89, .32, 1.28);
+  animation: showBlock 4s cubic-bezier(.18, .89, .32, 1.28);
   animation-fill-mode: forwards;
   opacity: 0;
 }

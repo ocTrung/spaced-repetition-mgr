@@ -1,21 +1,15 @@
-import styles from '@/styles/Schedule.module.scss'
-import TopicCard from './TopicCard'
+import { useState, useRef, useEffect } from 'react'
 import useReviewItems from 'hooks/useReviewItems'
 import Modal from '@/components/Modal'
-import AddReviewItem from './AddReviewItem'
-import { useState, useRef, useEffect } from 'react'
+import ReviewItemCard from '@/components/ReviewItemCard'
+import AddReviewItem from '@/components/AddReviewItem'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
+import styles from '@/styles/Schedule.module.scss'
 
 export function CardTray() {
   const { isLoading, isError, data, error } = useReviewItems()
   const reviewItems = data
-
-  const schedule = reviewItems?.sort((a, b) => {
-    const nextReviewA = getNextReviewDate(a)
-    const nextReviewB = getNextReviewDate(b)
-
-    return nextReviewA - nextReviewB
-  })
+  const schedule = reviewItems?.sort((a, b) => getNextReviewDate(a) - getNextReviewDate(b))
 
   if (isLoading)
     return 'Loading...'
@@ -26,8 +20,8 @@ export function CardTray() {
   return (
     <div className={styles.cardTray}>
       {
-        schedule.map((topic, i) => (
-          <TopicCard key={topic.id} topic={topic} index={i} />
+        schedule.map((reviewItem, i) => (
+          <ReviewItemCard key={reviewItem.id} reviewItem={reviewItem} index={i} />
         ))
       }
     </div>
@@ -63,7 +57,7 @@ export default function Schedule() {
         <CardTray />
       </div>
       <Modal handleOverlayClick={handleOverlayClick} showModal={showModal}>
-        <AddReviewItem ref={inputRef} setShowModal={setShowModal} ß />
+        <AddReviewItem ref={inputRef} setShowModal={setShowModal} />
       </Modal>
     </>
 

@@ -5,25 +5,6 @@
   padding-inline: 2rem;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.loginBtn {
-  border-style: none;
-  margin-right: 1rem;
-  padding-block: .5rem;
-  background-color: $theme;
-  border-radius: .5rem;
-  color: $gray-100;
-}
-
-.loginBtn:hover {
-  background-color: color.scale($theme, $lightness: 40%);
-}
-
 .sectionIntro {
   height: calc(100vh - 4rem); //4rem = header size
   width: 100%;
@@ -36,12 +17,21 @@
 
 .introHeading {
   font-size: 5rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 .introSubheading {
+  font-size: 1.5rem;
   font-weight: 500;
+  max-width: 55ch;
 }
+
+// @media (max-width: 800px) {
+//   .introSubheading {
+//     font-weight: 500;
+//     width: 100%;
+//   }
+// }
 
 .cta {
   display: flex;

@@ -12,10 +12,9 @@ const gradeToColor = [
   styles.five
 ]
 
-export function DemoSessionGrader({ topic, data, setData }) {
+export function DemoSessionGrader({ reviewItem, data, setData }) {
   const handleGradeClick = (e) => {
     const sessionGrade = parseInt(e.target.dataset.grade)
-    const reviewItem = topic
     const updatedReviewItem = addReviewSession(reviewItem, sessionGrade)
 
     const updatedData = data.map(d => d.title === updatedReviewItem.title ? updatedReviewItem : d)
