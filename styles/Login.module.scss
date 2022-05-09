@@ -72,15 +72,39 @@
   border-color: color.scale($theme, $lightness: 40%);
 }
 
+.sectionHeading {
+  font-size: 2rem;
+}
+
 .sectionLearnMore {
   width: 100%;
   font-size: 1.2rem;
-  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.li:not(:last-child) {
+  margin-block: 1rem;
+}
+
+.figure {
+  background-color: $theme;
+  width: fit-content;
+  padding: 1rem;
+  margin-inline: 0;
+  margin-block: 2rem;
+}
+
+.figcaption {
+  color: $gray-100;
+  opacity: 60%;
 }
 
 .info {
   color: $gray-500;
   font-style: italic;
+  margin-bottom: .5rem;
 }
 
 .wikiLink {

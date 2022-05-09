@@ -1,9 +1,9 @@
-import { getProviders } from "next-auth/react"
+import { getProviders } from 'next-auth/react'
 import { useRef, useEffect } from 'react'
-import Head from "next/head"
-import Link from "next/link"
+import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
-import Header from "@/components/Header"
+import Header from '@/components/Header'
 import styles from '@/styles/Login.module.scss'
 import gradeSessionScreenShot from '../public/gradeSessionScreenShot.png'
 import newIntervalScreenShot from '../public/newIntervalScreenShot.png'
@@ -24,8 +24,8 @@ export default function Login({ providers }) {
     <div className={styles.container}>
       <Head>
         <title>Review Scheduler</title>
-        <meta name="description" content="An application that figures out when you should review topics you are learning and then organizes your items into a queue." />
-        <link rel="icon" href="/clock.svg" />
+        <meta name='description' content='An application that figures out when you should review topics you are learning and then organizes your items into a queue.' />
+        <link rel='icon' href='/clock.svg' />
       </Head>
 
       <Header providers={providers} />
@@ -53,15 +53,35 @@ export default function Login({ providers }) {
         </section>
 
         <section id='learnMore' className={styles.sectionLearnMore} ref={learnMoreRef}>
-          <h2>The Problem</h2>
-          <p>✔️ Using spaced repetition when learning a single topic is fairly simple.</p>
-          <p>❌ Using spaced repetition when learning multiple topics can become messy and difficult to manage.</p>
-          <p className={styles.info}>Spaced repetition is a strategy for remembering what you learn by reviewing the topic at spaced intervals that gradually increase. </p>
-          <a className={styles.wikiLink} href='https://en.wikipedia.org/wiki/Spaced_repetition'>Learn more about spaced repetition</a>
+          <div>
+            <h2 className={styles.sectionHeading}>The Problem</h2>
+            <ul >
+              <li className={styles.li}>We tend to forget the things we learn or read after a period of time.</li>
+              <li className={styles.li}>We need to review the things we learn in order to commit them to memory.</li>
+              <li className={styles.li}>Using spaced repetition when learning multiple topics becomes messy and difficult to manage.</li>
+            </ul>
+            <figure className={styles.figure}>
+              <Image
+                src='https://upload.wikimedia.org/wikipedia/commons/d/dc/Ebbinghaus_Forgetting_Curve.jpg'
+                alt='Screen shot of user reporting review session grade'
+                width='641.6'
+                height='351.2'
+              />
+              <figcaption className={styles.figcaption}>
+                <strong>Forgetting Curve</strong>
+                <br></br>
+                <a href='https://commons.wikimedia.org/wiki/File:Ebbinghaus_Forgetting_Curve.jpg'>Nheise at English Wikibooks</a>, <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC BY-SA 3.0</a>, via Wikimedia Commons
+              </figcaption>
+            </figure>
+          </div>
+          <footer>
+            <p className={styles.info}>Spaced repetition is a strategy for remembering what you learn by reviewing the topic at spaced intervals that gradually increase. </p>
+            <a className={styles.wikiLink} href='https://en.wikipedia.org/wiki/Spaced_repetition'>Learn more about spaced repetition</a>
+          </footer>
         </section>
 
         <section className={styles.sectionSolution}>
-          <h2>The Solution and how it works</h2>
+          <h2 className={styles.sectionHeading}>The Solution and how it works</h2>
           <ol>
             <li className={styles.li}>
               <p className={styles.listText}>
@@ -70,9 +90,9 @@ export default function Login({ providers }) {
               <br></br>
               <Image
                 src={gradeSessionScreenShot}
-                alt="Screen shot of user reporting review session grade"
-                width="500px"
-                height='500px'
+                alt='Screen shot of user reporting review session grade'
+                width='500px'
+                height='491.46px'
               />
             </li>
             <li>
@@ -82,9 +102,9 @@ export default function Login({ providers }) {
               <br></br>
               <Image
                 src={newIntervalScreenShot}
-                alt="Screen shot of user reporting review session grade"
-                width="500px"
-                height='280px'
+                alt='Screen shot of user reporting review session grade'
+                width='500px'
+                height='238.98px'
               />
             </li>
             <li>
@@ -94,9 +114,9 @@ export default function Login({ providers }) {
               <br></br>
               <Image
                 src={queueScreenShot}
-                alt="Screen shot of user reporting review session grade"
-                width="500"
-                height='500px'
+                alt='Screen shot of user reporting review session grade'
+                width='500'
+                height='484.69'
               />
             </li>
           </ol>
