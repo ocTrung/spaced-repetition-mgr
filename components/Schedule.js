@@ -5,10 +5,9 @@ import ReviewItemCard from '@/components/ReviewItemCard'
 import AddReviewItem from '@/components/AddReviewItem'
 import { getNextReviewDate } from '@/utils/reviewItemUtils'
 import styles from '@/styles/Schedule.module.scss'
+import ItemPlaceholder from './ItemPlaceholder'
 
-export function CardTray() {
-  const { isLoading, isError, data, error } = useReviewItems()
-  const reviewItems = data
+export function CardTray({ isLoading, isError, data: reviewItems, error }) {
   const schedule = reviewItems?.sort((a, b) => getNextReviewDate(a) - getNextReviewDate(b))
 
   if (isLoading)
@@ -29,6 +28,7 @@ export function CardTray() {
 }
 
 export default function Schedule() {
+  const query = useReviewItems()
   const [showModal, setShowModal] = useState(false)
   const inputRef = useRef(null);
 
@@ -42,7 +42,6 @@ export default function Schedule() {
 
   const handleModalClick = () => {
     setShowModal(!showModal)
-    console.log(inputRef.current)
   }
 
   return (
@@ -54,7 +53,8 @@ export default function Schedule() {
             <img src='/plus.svg' height='10' width='10'></img>
           </button>
         </header>
-        <CardTray />
+        <CardTray {...query} />
+        <ItemPlaceholder data={query.data} />
       </div>
       <Modal handleOverlayClick={handleOverlayClick} showModal={showModal}>
         <AddReviewItem ref={inputRef} setShowModal={setShowModal} />

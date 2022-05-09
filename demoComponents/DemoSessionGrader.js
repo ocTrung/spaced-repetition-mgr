@@ -18,7 +18,6 @@ export function DemoSessionGrader({ reviewItem, data, setData }) {
     const updatedReviewItem = addReviewSession(reviewItem, sessionGrade)
 
     const updatedData = data.map(d => d.title === updatedReviewItem.title ? updatedReviewItem : d)
-    console.log('updatedData', updatedData)
     setData(updatedData)
   }
   return (

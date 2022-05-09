@@ -19,9 +19,14 @@ const AddReviewItem = ({ setShowModal }, ref) => {
     setTitle(e.target.value)
   }
 
+  const handleClose = () => {
+    setShowModal(false)
+    setTitle('')
+  }
+
   return (
     <div className={styles.container}>
-      <button onClick={() => setShowModal(false)} className={styles.exitBtn}>
+      <button onClick={handleClose} className={styles.exitBtn}>
         <img className={styles.exit} src='/cross.svg' height='15' width='15'></img>
       </button>
       <h1 className={styles.heading}>Add New Review Item</h1>

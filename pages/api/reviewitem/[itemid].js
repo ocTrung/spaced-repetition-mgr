@@ -12,7 +12,6 @@ export default async function handler(req, res) {
       })
 
       const itemsAfterDelete = await prisma.reviewItem.findMany()
-      console.log('itemsAfterDelete', itemsAfterDelete)
       res.json(itemsAfterDelete)
     }
 

@@ -1,6 +1,7 @@
 import styles from '@/styles/Schedule.module.scss'
 import DemoReviewItemCard from './DemoReviewItemCard'
 import Modal from '@/components/Modal'
+import ItemPlaceholder from '@/components/ItemPlaceholder'
 import DemoAddReviewItem from './DemoAddReviewItem'
 import { useState, useRef, useEffect } from 'react'
 import { getNextReviewDate, ReviewItem, addReviewSession } from '@/utils/reviewItemUtils'
@@ -26,13 +27,15 @@ export function DemoCardTray({ data, setData }) {
   )
 }
 
-let reviewItemDemo = new ReviewItem('HTML Fundamentals', new Date())
-reviewItemDemo = addReviewSession(reviewItemDemo, 2)
-reviewItemDemo = addReviewSession(reviewItemDemo, 4)
-reviewItemDemo = addReviewSession(reviewItemDemo, 1)
+let demoReviewItem1 = new ReviewItem('CSS Fundamentals', new Date())
+demoReviewItem1 = addReviewSession(demoReviewItem1, 2)
+demoReviewItem1 = addReviewSession(demoReviewItem1, 4)
+demoReviewItem1 = addReviewSession(demoReviewItem1, 1)
+let demoReviewItem2 = new ReviewItem('Notes on treble clef', new Date())
 
 const initialDemoData = [
-  reviewItemDemo,
+  demoReviewItem1,
+  demoReviewItem2
 ]
 
 export default function DemoSchedule() {
@@ -50,10 +53,7 @@ export default function DemoSchedule() {
 
   const handleModalClick = () => {
     setShowModal(!showModal)
-    console.log(inputRef.current)
   }
-
-  console.log(data)
 
   return (
     <>
@@ -65,6 +65,7 @@ export default function DemoSchedule() {
           </button>
         </header>
         <DemoCardTray data={data} setData={setData} />
+        <ItemPlaceholder data={data} />
       </div>
       <Modal handleOverlayClick={handleOverlayClick} showModal={showModal}>
         <DemoAddReviewItem ref={inputRef} data={data} setData={setData} setShowModal={setShowModal} />

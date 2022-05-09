@@ -22,12 +22,6 @@ export default function Login({ providers }) {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Review Scheduler</title>
-        <meta name='description' content='An application that figures out when you should review topics you are learning and then organizes your items into a queue.' />
-        <link rel='icon' href='/clock.svg' />
-      </Head>
-
       <Header providers={providers} />
 
       <main className={styles.main}>
@@ -47,7 +41,7 @@ export default function Login({ providers }) {
               Learn more
             </a>
             <Link href='/demo'>
-              <a className={styles.tryItBtn}>Try it out</a>
+              <a className={styles.tryItBtn}>Demo</a>
             </Link>
           </div>
         </section>

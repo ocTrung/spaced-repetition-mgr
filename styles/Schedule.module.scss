@@ -7,6 +7,13 @@
   flex-direction: column;
   box-shadow: 8px 10px 10px rgb(219, 219, 219);
   border-radius: .5rem;
+  width: 65ch;
+}
+
+@media screen and (max-width: 600px) {
+  .scheduleCard {
+    width: 100%;
+  }
 }
 
 .scheduleTitle {

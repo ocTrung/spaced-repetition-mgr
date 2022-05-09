@@ -1,0 +1,34 @@
+@import './variables.module.scss';
+
+.tip {
+  font-weight: 600;
+  color: $gray-900;
+}
+
+.tipContainer {
+  background-color: rgb(249, 249, 249);
+  background-color: $card-color;
+  padding-block: 0.5rem;
+  padding-inline: .8rem;
+  box-shadow: 3px 4px 0px $gray-200;
+  border-radius: .7rem;
+  color: $gray-600;
+
+  animation-name: cardAppear;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(.18, .89, .32, 1.28); // ease-in-out backwards
+  animation-fill-mode: both;
+  transform: translateY(-25px);
+  opacity: 0%;
+}
+
+@keyframes cardAppear {
+  80% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}

@@ -8,12 +8,6 @@ export default function Home({ session }) {
   return (
     <div className={styles.container}>
       <Navbar />
-      <Head>
-        <title>Review Scheduler</title>
-        <meta name="description" content="An application that figures out when you should review topics you are learning and then organizes your items into a queue." />
-        <link rel="icon" href="/clock.svg" />
-      </Head>
-
       <main className={styles.main}>
         <Schedule />
       </main>
