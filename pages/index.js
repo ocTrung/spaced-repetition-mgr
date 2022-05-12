@@ -5,10 +5,13 @@ import Navbar from '@/components/Navbar'
 import styles from '@/styles/Home.module.scss'
 
 export default function Home({ session }) {
+  const currentDate = new Date().toDateString()
   return (
     <div className={styles.container}>
       <Navbar />
       <main className={styles.main}>
+        <h1 className={styles.title}>Today is {currentDate} 🗓</h1>
+        <br></br>
         <Schedule />
       </main>
     </div>
