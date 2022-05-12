@@ -29,8 +29,8 @@ export function DemoCardTray({ data, setData }) {
 
 let demoReviewItem1 = new ReviewItem('CSS Fundamentals', new Date())
 demoReviewItem1 = addReviewSession(demoReviewItem1, 2)
+demoReviewItem1 = addReviewSession(demoReviewItem1, 3)
 demoReviewItem1 = addReviewSession(demoReviewItem1, 4)
-demoReviewItem1 = addReviewSession(demoReviewItem1, 1)
 let demoReviewItem2 = new ReviewItem('Notes on treble clef', new Date())
 
 const initialDemoData = [

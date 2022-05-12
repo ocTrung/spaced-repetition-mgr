@@ -1,7 +1,7 @@
 import styles from '@/styles/Demo.module.scss'
-import DemoSchedule from '../demoComponents/DemoSchedule.js'
+import DemoSchedule from '../demoComponents/DemoSchedule.jsx'
 import { getProviders, signIn } from "next-auth/react"
-import Header from '@/components/Header.js'
+import Header from '@/components/Header.jsx'
 
 export default function Demo({ providers }) {
 
