@@ -49,7 +49,7 @@ export default function Login({ providers }) {
         <section id='learnMore' className={styles.sectionLearnMore} ref={learnMoreRef}>
           <div>
             <h2 className={styles.sectionHeading}>The Problem</h2>
-            <ul >
+            <ul className={styles.ul}>
               <li className={styles.li}>We tend to forget the things we learn or read after a period of time.</li>
               <li className={styles.li}>We need to review the things we learn in order to commit them to memory.</li>
               <li className={styles.li}>Using spaced repetition when learning multiple topics becomes messy and difficult to manage.</li>
@@ -89,7 +89,7 @@ export default function Login({ providers }) {
                 height='491.46px'
               />
             </li>
-            <li>
+            <li className={styles.li}>
               <p className={styles.listText}>
                 The app uses the reported input to determine how long the next interval should be (interval: time between reviewing a topic)
               </p>
@@ -101,7 +101,7 @@ export default function Login({ providers }) {
                 height='238.98px'
               />
             </li>
-            <li>
+            <li className={styles.li}>
               <p className={styles.listText}>
                 The app reorganizes the queue, placing the most urgent topic to review at the top
               </p>
