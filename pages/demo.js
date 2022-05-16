@@ -21,6 +21,6 @@ export default function Demo({ providers }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   return { props: { providers: await getProviders() } };
 }

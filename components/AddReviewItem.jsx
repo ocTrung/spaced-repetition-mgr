@@ -27,7 +27,7 @@ const AddReviewItem = ({ setShowModal }, ref) => {
   return (
     <div className={styles.container}>
       <button onClick={handleClose} className={styles.exitBtn}>
-        <img className={styles.exit} src='/cross.svg' height='15' width='15'></img>
+        <img className={styles.exit} src='/cross.svg' height='15' width='15' alt='close modal'></img>
       </button>
       <h1 className={styles.heading}>Add New Review Item</h1>
       <form className={styles.form} onSubmit={handleSubmit}>

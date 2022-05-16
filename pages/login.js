@@ -27,7 +27,7 @@ export default function Login({ providers }) {
         <section className={styles.sectionIntro}>
           <h2 className={styles.introHeading}>A Spaced Repetition Manager</h2>
           <h3 className={styles.introSubheading}>
-            A simple way to manage what you're learning and when it should be reviewed.
+            A simple way to manage what you&apos;re learning and when it should be reviewed.
             The manager automatically determines when you should <em className={styles.em}>review topics</em> and organizes
             them into a <em className={styles.em}>queue</em>
           </h3>
