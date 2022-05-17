@@ -1,4 +1,3 @@
-import { getProviders } from 'next-auth/react'
 import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -8,7 +7,7 @@ import gradeSessionScreenShot from '../public/gradeSessionScreenShot.png'
 import newIntervalScreenShot from '../public/newIntervalScreenShot.png'
 import queueScreenShot from '../public/queueScreenShot.png'
 
-export default function Login({ providers }) {
+export default function Login() {
   const anchorRef = useRef()
   const learnMoreRef = useRef()
 
@@ -21,7 +20,7 @@ export default function Login({ providers }) {
 
   return (
     <div className={styles.container}>
-      <Header providers={providers} />
+      <Header />
 
       <main className={styles.main}>
         <section className={styles.sectionIntro}>
@@ -117,7 +116,4 @@ export default function Login({ providers }) {
       </main>
     </div>
   );
-}
-export async function getServerSideProps(context) {
-  return { props: { providers: await getProviders() } };
 }

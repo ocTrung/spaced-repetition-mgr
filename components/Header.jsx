@@ -2,7 +2,7 @@ import { signIn } from "next-auth/react"
 import Link from 'next/link'
 import styles from '@/styles/Header.module.scss'
 
-export default function Header({ providers }) {
+export default function Header() {
   return (
     <header className={styles.header}>
       <Link href='/'>
@@ -10,20 +10,14 @@ export default function Header({ providers }) {
           SRM
         </a>
       </Link>
-      {
-        Object.values(providers).map((provider) => (
-          <div key={provider.name}>
-            <button
-              className={styles.loginBtn}
-              onClick={() => signIn(provider.id, {
-                callbackUrl: '/'
-              })}
-            >
-              Sign in with {provider.name}
-            </button>
-          </div>
-        ))
-      }
+      <button
+        className={styles.loginBtn}
+        onClick={() => signIn('google', {
+          callbackUrl: '/'
+        })}
+      >
+        Sign in with Google
+      </button>
     </header>
   )
 }
