@@ -11,7 +11,7 @@ export class ReviewItem {
 
 export function getNextReviewDate(reviewItem) {
   const newDate = new Date(reviewItem.lastReviewed)
-  const days = reviewItem.intervals.at(-1) || 0
+  const days = reviewItem.intervals[reviewItem.intervals.length - 1] || 0
   newDate.setDate(newDate.getDate() + days)
 
   return newDate

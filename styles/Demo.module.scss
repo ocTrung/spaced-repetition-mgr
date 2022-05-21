@@ -21,3 +21,9 @@
   font-size: 1rem;
   color: $gray-500;
 }
+
+@media screen and (max-width:500px) {
+  .subheading {
+    padding-inline: 1rem;
+  }
+}
