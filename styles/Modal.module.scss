@@ -5,6 +5,8 @@
   top: 50%;
   transition: all 400ms ease-in;
   transform: translate(-50%, -75%);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .hideModal {

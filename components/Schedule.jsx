@@ -33,7 +33,8 @@ export default function Schedule() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.focus()
+    if (showModal)
+      inputRef.current.focus()
   }, [showModal])
 
   const handleOverlayClick = () => {
