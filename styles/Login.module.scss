@@ -135,3 +135,14 @@
   font-size: 1.2rem;
   margin-top: 6rem;
 }
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding-inline: .5rem;
+  }
+
+  .introHeading {
+    font-size: 3.5em;
+    margin-bottom: 0rem;
+  }
+}

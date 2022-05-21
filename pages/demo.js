@@ -1,13 +1,13 @@
 import styles from '@/styles/Demo.module.scss'
 import DemoSchedule from '../demoComponents/DemoSchedule.jsx'
-import { getProviders, signIn } from "next-auth/react"
+import { signIn } from "next-auth/react"
 import Header from '@/components/Header.jsx'
 
-export default function Demo({ providers }) {
+export default function Demo() {
 
   return (
     <div className={styles.container}>
-      <Header providers={providers} />
+      <Header />
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -19,8 +19,4 @@ export default function Demo({ providers }) {
       </main>
     </div>
   )
-}
-
-export async function getServerSideProps() {
-  return { props: { providers: await getProviders() } };
 }
